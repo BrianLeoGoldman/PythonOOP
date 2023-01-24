@@ -5,16 +5,16 @@ class Animal(ABC):  # Abstract class (or interface)
     __name = ""
     __age = ""
 
-    def getName(self):  # Getter for name
+    def get_name(self):  # Getter for name
         return self.__name
 
-    def getAge(self):  # Getter for age
+    def get_age(self):  # Getter for age
         return self.__age
 
-    def setName(self, name):  # Setter for name
+    def set_name(self, name):  # Setter for name
         self.__name = name
 
-    def setAge(self, age):  # Setter for age
+    def set_age(self, age):  # Setter for age
         self.__age = age
 
     @abstractmethod

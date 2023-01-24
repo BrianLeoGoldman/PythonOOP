@@ -17,31 +17,31 @@ if __name__ == '__main__':
 
     # Abstraction
     myComputer = Computer()
-    myComputer.turnOn()
-    myComputer.inputCommand("image", "photo.jpg")
-    myComputer.inputCommand("text", "story.txt")
-    myComputer.inputCommand("internet", "www.mypage.com")
-    myComputer.turnOff()
+    myComputer.turn_on()
+    myComputer.input_command("image", "photo.jpg")
+    myComputer.input_command("text", "story.txt")
+    myComputer.input_command("internet", "www.mypage.com")
+    myComputer.turn_off()
     # myComputer.processImage("dog.png")
     # AttributeError: 'Computer' object has no attribute 'processImage'
-    myComputer._playGame("Undertale")  # Access to a protected member
+    myComputer._play_game("Undertale")  # Access to a protected member
 
     # Inheritance
     animal1 = Duck()
     animal2 = Dog()
     # animal3 = Animal()  TypeError: Can't instantiate abstract class Animal with abstract method eat
-    animal1.setName("Ducky")
-    animal1.setAge(2)
-    animal2.setName("Rocky")
-    animal2.setAge(5)
+    animal1.set_name("Ducky")
+    animal1.set_age(2)
+    animal2.set_name("Rocky")
+    animal2.set_age(5)
     animal1.eat("Grass")
     animal2.eat("Meat")
     animal1.swim()
     animal1.fly()
     animal2.bark()
     animal2.play()
-    print("The duck is called " + animal1.getName() + " and is " + str(animal1.getAge()) + " years old")
-    print("The dog is called " + animal2.getName() + " and is " + str(animal2.getAge()) + " years old")
+    print("The duck is called " + animal1.get_name() + " and is " + str(animal1.get_age()) + " years old")
+    print("The dog is called " + animal2.get_name() + " and is " + str(animal2.get_age()) + " years old")
 
     # Polymorphism
     executable1 = Command()

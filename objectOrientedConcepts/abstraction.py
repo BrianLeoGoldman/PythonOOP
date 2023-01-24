@@ -1,29 +1,29 @@
 class Computer:
 
-    def turnOn(self):
+    def turn_on(self):
         print("Turning on the computer")
 
-    def inputCommand(self, command, value):
+    def input_command(self, command, value):
         if command == "image":
-            self.__processImage(value)
+            self.__process_image(value)
         elif command == "text":
-            self.__processText(value)
+            self.__process_text(value)
         elif command == "internet":
-            self.__connectToTheWeb(value)
+            self.__connect_to_the_web(value)
         else:
             print("Nothing to do...")
 
-    def turnOff(self):
+    def turn_off(self):
         print("Turning off the computer")
 
-    def __processImage(self, image):  # Private method
+    def __process_image(self, image):  # Private method
         print("Processing image " + image)
 
-    def __processText(self, text):  # Private method
+    def __process_text(self, text):  # Private method
         print("Processing text " + text)
 
-    def __connectToTheWeb(self, webPage):  # Private method
-        print("Connecting to " + webPage)
+    def __connect_to_the_web(self, web_page):  # Private method
+        print("Connecting to " + web_page)
 
-    def _playGame(self, game):
+    def _play_game(self, game):
         print("Playing " + game)
