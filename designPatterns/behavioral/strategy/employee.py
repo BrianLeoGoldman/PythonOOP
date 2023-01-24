@@ -1,3 +1,6 @@
+from designPatterns.behavioral.strategy.working_behaviour import *
+from designPatterns.behavioral.strategy.resting_behaviour import *
+
 
 class Employee:
 

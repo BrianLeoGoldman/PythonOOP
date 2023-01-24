@@ -9,6 +9,12 @@ class WorkingBehaviour(ABC):  # Abstract class (or interface)
         pass
 
 
+class NoWorkingBehaviour(WorkingBehaviour):
+
+    def work(self):
+        print("Doing nothing...")
+
+
 class TechnicalWorkingBehaviour(WorkingBehaviour):
 
     def work(self):
