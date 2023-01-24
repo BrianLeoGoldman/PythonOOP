@@ -1,9 +1,9 @@
 from designPatterns.behavioral.strategy.working_behaviour import *
 from designPatterns.behavioral.strategy.resting_behaviour import *
+from designPatterns.behavioral.strategy.display_behaviour import *
 
 
 class Employee:
-
     __name: ""
     __code: 0
     __working_behaviour: NoWorkingBehaviour()
