@@ -1,7 +1,7 @@
-from abstraction import Computer
-from encapsulation import Car
-from inheritance import Duck, Dog, Animal
-from polymorphism import Command, Order
+from objectOrientedConcepts.abstraction import Computer
+from objectOrientedConcepts.encapsulation import Car
+from objectOrientedConcepts.inheritance import Duck, Dog
+from objectOrientedConcepts.polymorphism import Command, Order
 
 if __name__ == '__main__':
     # Encapsulation
