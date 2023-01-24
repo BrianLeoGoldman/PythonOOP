@@ -36,6 +36,6 @@ class HighRestingBehaviour(RestingBehaviour):
         days = 10
         money = 10000
         while days > 0:
-            print("Resting in " + destination + " with " + money + " dollars")
+            print("Resting in " + destination + " with " + str(money) + " dollars")
             days = days - 1
             money = money - 750

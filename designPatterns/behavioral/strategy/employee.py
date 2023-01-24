@@ -10,6 +10,15 @@ class Employee:
     __resting_behaviour: NoRestingBehaviour()
     __displaying_behaviour: NoDisplayingBehaviour()
 
+    # CONSTRUCTOR
+
+    # def __init__(self, name, code):
+    #     self.__name = name
+    #     self.__code = code
+    #     self.__working_behaviour = NoWorkingBehaviour()
+    #     self.__resting_behaviour = NoRestingBehaviour()
+    #     self.__displaying_behaviour = NoDisplayingBehaviour()
+
     # CONSTRUCTOR (for constructor dependency injection)
 
     def __init__(self, name, code, working_behaviour, resting_behaviour, display_behaviour):
@@ -39,4 +48,4 @@ class Employee:
         self.__resting_behaviour.rest()
 
     def display(self):
-        self.__resting_behaviour.rest()
+        self.__displaying_behaviour.display(self.__name, self.__code)

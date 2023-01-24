@@ -1,10 +1,14 @@
+from designPatterns.behavioral.strategy.display_behaviour import *
+from designPatterns.behavioral.strategy.employee import Employee
+from designPatterns.behavioral.strategy.resting_behaviour import *
+from designPatterns.behavioral.strategy.working_behaviour import *
 from objectOrientedConcepts.abstraction import Computer
 from objectOrientedConcepts.encapsulation import Car
 from objectOrientedConcepts.inheritance import Duck, Dog
 from objectOrientedConcepts.polymorphism import Command, Order
 
-if __name__ == '__main__':
-    # Encapsulation
+
+def encapsulationTest():
     car1 = Car("Toyota", "Corolla", "grey")
     car2 = Car("Ford", "Mondeo", "blue")
     car3 = Car("Chevrolet", "Camaro", "red")
@@ -15,18 +19,20 @@ if __name__ == '__main__':
     car1.stop()
     car3.stop()
 
-    # Abstraction
-    myComputer = Computer()
-    myComputer.turn_on()
-    myComputer.input_command("image", "photo.jpg")
-    myComputer.input_command("text", "story.txt")
-    myComputer.input_command("internet", "www.mypage.com")
-    myComputer.turn_off()
-    # myComputer.processImage("dog.png")
-    # AttributeError: 'Computer' object has no attribute 'processImage'
-    myComputer._play_game("Undertale")  # Access to a protected member
 
-    # Inheritance
+def abstractionTest():
+    my_computer = Computer()
+    my_computer.turn_on()
+    my_computer.input_command("image", "photo.jpg")
+    my_computer.input_command("text", "story.txt")
+    my_computer.input_command("internet", "www.mypage.com")
+    my_computer.turn_off()
+    # my_computer.processImage("dog.png")
+    # AttributeError: 'Computer' object has no attribute 'processImage'
+    my_computer._play_game("Undertale")  # Access to a protected member
+
+
+def inheritanceTest():
     animal1 = Duck()
     animal2 = Dog()
     # animal3 = Animal()  TypeError: Can't instantiate abstract class Animal with abstract method eat
@@ -43,12 +49,57 @@ if __name__ == '__main__':
     print("The duck is called " + animal1.get_name() + " and is " + str(animal1.get_age()) + " years old")
     print("The dog is called " + animal2.get_name() + " and is " + str(animal2.get_age()) + " years old")
 
-    # Polymorphism
+
+def polymorphismTest():
     executable1 = Command()
     executable2 = Order()
     executable3 = Command()
     executable4 = Command()
     executable5 = Order()
-    executableList = [executable1, executable2, executable3, executable4, executable5]
-    for elem in executableList:
+    executable_list = [executable1, executable2, executable3, executable4, executable5]
+    for elem in executable_list:
         print(elem.execute())
+
+
+def strategyPatternTest():
+    employee = Employee("John", 1, NoWorkingBehaviour(), NoRestingBehaviour(), NoDisplayingBehaviour())
+
+    employee.display()
+    employee.rest()
+    employee.work()
+
+    employee.set_displaying_behaviour(GraphicDisplayingBehaviour())
+    employee.display()
+    employee.set_resting_behaviour(HighRestingBehaviour())
+    employee.rest()
+    employee.set_working_behaviour(TechnicalWorkingBehaviour())
+    employee.work()
+
+    employee.set_displaying_behaviour(TextDisplayingBehaviour())
+    employee.display()
+    employee.set_resting_behaviour(MediumRestingBehaviour())
+    employee.rest()
+    employee.set_working_behaviour(FinanceWorkingBehaviour())
+    employee.work()
+
+    employee.set_resting_behaviour(LowRestingBehaviour())
+    employee.rest()
+    employee.set_working_behaviour(HRWorkingBehaviour())
+    employee.work()
+
+
+if __name__ == '__main__':
+    # Encapsulation
+    # encapsulationTest()
+
+    # Abstraction
+    # abstractionTest()
+
+    # Inheritance
+    # inheritanceTest()
+
+    # Polymorphism
+    # polymorphismTest()
+
+    # Strategy Pattern
+    strategyPatternTest()

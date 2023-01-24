@@ -24,4 +24,4 @@ class GraphicDisplayingBehaviour(DisplayingBehaviour):
 
     def display(self, name, code):
         image = "///-\\\\\\\n" + "|^   ^|\n" + "|O   O|\n" + "|  ~  |\n" + " \\ O /\n" + "  | |"
-        print(image + "\n" + name + " - " + code)
+        print(image + "\n" + name + " - " + str(code))
