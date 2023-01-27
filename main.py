@@ -1,3 +1,5 @@
+from designPatterns.behavioral.observer.observable import WeatherStation
+from designPatterns.behavioral.observer.observer import Sprinkler, AirConditioner
 from designPatterns.behavioral.strategy.display_behaviour import *
 from designPatterns.behavioral.strategy.employee import Employee
 from designPatterns.behavioral.strategy.resting_behaviour import *
@@ -8,7 +10,7 @@ from objectOrientedConcepts.inheritance import Duck, Dog
 from objectOrientedConcepts.polymorphism import Command, Order
 
 
-def encapsulationTest():
+def encapsulation_test():
     car1 = Car("Toyota", "Corolla", "grey")
     car2 = Car("Ford", "Mondeo", "blue")
     car3 = Car("Chevrolet", "Camaro", "red")
@@ -20,7 +22,7 @@ def encapsulationTest():
     car3.stop()
 
 
-def abstractionTest():
+def abstraction_test():
     my_computer = Computer()
     my_computer.turn_on()
     my_computer.input_command("image", "photo.jpg")
@@ -32,7 +34,7 @@ def abstractionTest():
     my_computer._play_game("Undertale")  # Access to a protected member
 
 
-def inheritanceTest():
+def inheritance_test():
     animal1 = Duck()
     animal2 = Dog()
     # animal3 = Animal()  TypeError: Can't instantiate abstract class Animal with abstract method eat
@@ -50,7 +52,7 @@ def inheritanceTest():
     print("The dog is called " + animal2.get_name() + " and is " + str(animal2.get_age()) + " years old")
 
 
-def polymorphismTest():
+def polymorphism_test():
     executable1 = Command()
     executable2 = Order()
     executable3 = Command()
@@ -61,7 +63,7 @@ def polymorphismTest():
         print(elem.execute())
 
 
-def strategyPatternTest():
+def strategy_pattern_test():
     employee = Employee("John", 1, NoWorkingBehaviour(), NoRestingBehaviour(), NoDisplayingBehaviour())
 
     employee.display()
@@ -88,18 +90,50 @@ def strategyPatternTest():
     employee.work()
 
 
+def observer_pattern_test():
+    station = WeatherStation()
+    sprinkler1 = Sprinkler(station)
+    sprinkler2 = Sprinkler(station)
+    sprinkler3 = Sprinkler(station)
+    air_conditioner1 = AirConditioner(station)
+    air_conditioner2 = AirConditioner(station)
+    station.register(sprinkler1)
+    station.register(sprinkler2)
+    station.register(sprinkler3)
+    station.register(air_conditioner1)
+    station.register(air_conditioner2)
+    print("Setting humidity to 46...")
+    station.set_humidity(46)
+    print("Setting temperature to 26...")
+    station.set_temperature(26)
+    print("Setting humidity to 34...")
+    station.set_humidity(34)
+    print("Setting temperature to 29...")
+    station.set_temperature(29)
+    print("Setting humidity to 31...")
+    station.set_humidity(31)
+    print("Unregistering one sprinkler and one air conditioner...")
+    station.unregister(sprinkler2)
+    station.unregister(air_conditioner2)
+    print("Setting temperature to 31...")
+    station.set_temperature(31)
+
+
 if __name__ == '__main__':
     # Encapsulation
-    # encapsulationTest()
+    # encapsulation_test()
 
     # Abstraction
-    # abstractionTest()
+    # abstraction_test()
 
     # Inheritance
-    # inheritanceTest()
+    # inheritance_test()
 
     # Polymorphism
-    # polymorphismTest()
+    # polymorphism_test()
 
     # Strategy Pattern
-    strategyPatternTest()
+    # strategy_pattern_test()
+
+    # Observer Pattern
+    observer_pattern_test()

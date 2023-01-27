@@ -7,11 +7,11 @@ class Observable(ABC):
         pass
 
     @abstractmethod
-    def remove(self, observer):
+    def unregister(self, observer):
         pass
 
     @abstractmethod
-    def notifyChanges(self):
+    def notify_changes(self):
         pass
 
 
@@ -24,9 +24,26 @@ class WeatherStation(Observable):
     def register(self, observer):
         self.__observers.append(observer)
 
-    def remove(self, observer):
+    def unregister(self, observer):
         self.__observers.remove(observer)
 
-    def notifyChanges(self):
+    def notify_changes(self):
         for observer in self.__observers:
             observer.update()
+
+    def get_humidity(self):
+        return self.__humidity
+
+    def set_humidity(self, humidity):
+        self.__humidity = humidity
+        self.notify_changes()
+
+    def get_temperature(self):
+        return self.__temperature
+
+    def set_temperature(self, temperature):
+        self.__temperature = temperature
+        self.notify_changes()
+
+
+

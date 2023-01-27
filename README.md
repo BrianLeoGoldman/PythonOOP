@@ -1,6 +1,7 @@
 # PythonOOP
 
 Project with explanations and examples of Object-Oriented Programming concepts and different Design Patterns in Python language.
+For documentation, see JavaOOP project: https://github.com/BrianLeoGoldman/JavaOOP
 
 ### Object-Oriented Programming concepts:
 
@@ -12,3 +13,4 @@ Project with explanations and examples of Object-Oriented Programming concepts a
 ### Design Patterns:
 
 - Strategy
+- Observer
