@@ -4,6 +4,8 @@ from designPatterns.behavioral.strategy.display_behaviour import *
 from designPatterns.behavioral.strategy.employee import Employee
 from designPatterns.behavioral.strategy.resting_behaviour import *
 from designPatterns.behavioral.strategy.working_behaviour import *
+from designPatterns.structural.decorator.decorators import LaserRobot, NanoRobot, ReactorRobot, BeamRobot
+from designPatterns.structural.decorator.robot import SteelRobot, IronRobot
 from objectOrientedConcepts.abstraction import Computer
 from objectOrientedConcepts.encapsulation import Car
 from objectOrientedConcepts.inheritance import Duck, Dog
@@ -119,6 +121,23 @@ def observer_pattern_test():
     station.set_temperature(31)
 
 
+def decorator_pattern_test():
+    steel_robot = SteelRobot()
+    decorated_robot1 = LaserRobot(NanoRobot(ReactorRobot(BeamRobot(steel_robot))))
+    print(decorated_robot1.get_description())
+    print(decorated_robot1.build())
+
+    iron_robot1 = IronRobot()
+    decorated_robot2 = LaserRobot(ReactorRobot(ReactorRobot(LaserRobot(iron_robot1))))
+    print(decorated_robot2.get_description())
+    print(decorated_robot2.build())
+
+    iron_robot2 = IronRobot()
+    decorated_robot3 = BeamRobot(iron_robot2)
+    print(decorated_robot3.get_description())
+    print(decorated_robot3.build())
+
+
 if __name__ == '__main__':
     # Encapsulation
     # encapsulation_test()
@@ -136,4 +155,7 @@ if __name__ == '__main__':
     # strategy_pattern_test()
 
     # Observer Pattern
-    observer_pattern_test()
+    # observer_pattern_test()
+
+    # Decorator Pattern
+    decorator_pattern_test()
