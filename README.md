@@ -15,3 +15,4 @@ For documentation, see JavaOOP project: https://github.com/BrianLeoGoldman/JavaO
 - Strategy
 - Observer
 - Decorator
+- Factory Method
