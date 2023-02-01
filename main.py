@@ -4,6 +4,7 @@ from designPatterns.behavioral.strategy.display_behaviour import *
 from designPatterns.behavioral.strategy.employee import Employee
 from designPatterns.behavioral.strategy.resting_behaviour import *
 from designPatterns.behavioral.strategy.working_behaviour import *
+from designPatterns.creational.factoryMethod.enemy_factory import RandomEnemyFactory, BalancedEnemyFactory
 from designPatterns.structural.decorator.decorators import LaserRobot, NanoRobot, ReactorRobot, BeamRobot
 from designPatterns.structural.decorator.robot import SteelRobot, IronRobot
 from objectOrientedConcepts.abstraction import Computer
@@ -138,6 +139,24 @@ def decorator_pattern_test():
     print(decorated_robot3.build())
 
 
+def factory_method_pattern_test():
+    random_factory = RandomEnemyFactory()
+    balanced_factory = BalancedEnemyFactory("Soldier")
+    random_enemies = []
+    balanced_enemies = []
+    count = 6
+    while count > 0:
+        random_enemies.append(random_factory.create_enemy())
+        balanced_enemies.append(balanced_factory.create_enemy())
+        count = count - 1
+    print("Random Enemy Factory")
+    for e in random_enemies:
+        print(e.display())
+    print("Balanced Enemy Factory")
+    for e in balanced_enemies:
+        print(e.display())
+
+
 if __name__ == '__main__':
     # Encapsulation
     # encapsulation_test()
@@ -158,4 +177,7 @@ if __name__ == '__main__':
     # observer_pattern_test()
 
     # Decorator Pattern
-    decorator_pattern_test()
+    # decorator_pattern_test()
+
+    # Factory Method Pattern
+    factory_method_pattern_test()
