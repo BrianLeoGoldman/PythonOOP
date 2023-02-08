@@ -7,6 +7,7 @@ from designPatterns.behavioral.strategy.working_behaviour import *
 from designPatterns.creational.abstractFactory.factories import FordCarFactory, ToyotaCarFactory
 from designPatterns.creational.abstractFactory.truck import Truck
 from designPatterns.creational.factoryMethod.enemy_factory import RandomEnemyFactory, BalancedEnemyFactory
+from designPatterns.creational.singleton.manager import Manager
 from designPatterns.structural.decorator.decorators import LaserRobot, NanoRobot, ReactorRobot, BeamRobot
 from designPatterns.structural.decorator.robot import SteelRobot, IronRobot
 from objectOrientedConcepts.abstraction import Computer
@@ -190,6 +191,18 @@ def abstract_factory_pattern_test():
     print(toyota_truck.get_battery().turn_off())
 
 
+def singleton_pattern_test():
+    # manager = Manager()
+    manager1 = Manager.get_instance()
+    print("Manager 1: " + str(manager1.get_code()))
+    manager2 = Manager.get_instance()
+    print("Manager 2: " + str(manager2.get_code()))
+
+    manager1.set_code(27)
+    manager2.set_code(55)
+    print("Manager 1: " + str(manager1.get_code()))
+    print("Manager 2: " + str(manager2.get_code()))
+
 
 if __name__ == '__main__':
     # Encapsulation
@@ -217,4 +230,7 @@ if __name__ == '__main__':
     # factory_method_pattern_test()
 
     # Abstract Factory Pattern
-    abstract_factory_pattern_test()
+    # abstract_factory_pattern_test()
+
+    # Singleton Pattern
+    singleton_pattern_test()

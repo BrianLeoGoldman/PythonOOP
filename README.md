@@ -17,3 +17,5 @@ For documentation, see JavaOOP project: https://github.com/BrianLeoGoldman/JavaO
 - Decorator
 - Factory Method
 - Abstract Factory
+- Singleton
+- Command (TO DO)
