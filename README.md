@@ -16,3 +16,4 @@ For documentation, see JavaOOP project: https://github.com/BrianLeoGoldman/JavaO
 - Observer
 - Decorator
 - Factory Method
+- Abstract Factory
