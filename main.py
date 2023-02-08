@@ -4,6 +4,8 @@ from designPatterns.behavioral.strategy.display_behaviour import *
 from designPatterns.behavioral.strategy.employee import Employee
 from designPatterns.behavioral.strategy.resting_behaviour import *
 from designPatterns.behavioral.strategy.working_behaviour import *
+from designPatterns.creational.abstractFactory.factories import FordCarFactory, ToyotaCarFactory
+from designPatterns.creational.abstractFactory.truck import Truck
 from designPatterns.creational.factoryMethod.enemy_factory import RandomEnemyFactory, BalancedEnemyFactory
 from designPatterns.structural.decorator.decorators import LaserRobot, NanoRobot, ReactorRobot, BeamRobot
 from designPatterns.structural.decorator.robot import SteelRobot, IronRobot
@@ -157,6 +159,38 @@ def factory_method_pattern_test():
         print(e.display())
 
 
+def abstract_factory_pattern_test():
+    ford_factory = FordCarFactory()
+    toyota_factory = ToyotaCarFactory()
+
+    ford_truck = Truck()
+    ford_truck.set_chassis(ford_factory.build_chassis("AE1203F"))
+    ford_truck.set_engine(ford_factory.build_engine(500))
+    ford_truck.set_radiator(ford_factory.build_radiator())
+    ford_truck.set_battery(ford_factory.build_battery(21))
+
+    print(ford_truck.get_engine().start())
+    print(ford_truck.get_engine().stop())
+    print(ford_truck.get_radiator().cool_engine())
+    print(ford_truck.get_radiator().heat_cabin())
+    print(ford_truck.get_battery().turn_on())
+    print(ford_truck.get_battery().turn_off())
+
+    toyota_truck = Truck()
+    toyota_truck.set_chassis(toyota_factory.build_chassis("CE3456T"))
+    toyota_truck.set_engine(toyota_factory.build_engine(520))
+    toyota_truck.set_radiator(toyota_factory.build_radiator())
+    toyota_truck.set_battery(toyota_factory.build_battery(17))
+
+    print(toyota_truck.get_engine().start())
+    print(toyota_truck.get_engine().stop())
+    print(toyota_truck.get_radiator().cool_engine())
+    print(toyota_truck.get_radiator().heat_cabin())
+    print(toyota_truck.get_battery().turn_on())
+    print(toyota_truck.get_battery().turn_off())
+
+
+
 if __name__ == '__main__':
     # Encapsulation
     # encapsulation_test()
@@ -180,4 +214,7 @@ if __name__ == '__main__':
     # decorator_pattern_test()
 
     # Factory Method Pattern
-    factory_method_pattern_test()
+    # factory_method_pattern_test()
+
+    # Abstract Factory Pattern
+    abstract_factory_pattern_test()

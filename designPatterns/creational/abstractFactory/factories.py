@@ -1,5 +1,8 @@
 from abc import ABC, abstractmethod
 
+from designPatterns.creational.abstractFactory.ford import FordChassis, FordEngine, FordRadiator, FordBattery
+from designPatterns.creational.abstractFactory.toyota import ToyotaChassis, ToyotaEngine, ToyotaRadiator, ToyotaBattery
+
 
 class CarFactory(ABC):
 
@@ -23,13 +26,34 @@ class CarFactory(ABC):
 class FordCarFactory(CarFactory):
 
     def build_chassis(self, code):
-        pass
+        return FordChassis(code)
 
     def build_engine(self, horsepower):
-        pass
+        return FordEngine(horsepower)
 
     def build_radiator(self):
-        pass
+        return FordRadiator()
 
     def build_battery(self, voltage):
-        pass
+        if voltage > 10:
+            return FordBattery()
+        else:
+            raise Exception("Not enough voltage to build a Ford battery")
+
+
+class ToyotaCarFactory(CarFactory):
+
+    def build_chassis(self, code):
+        return ToyotaChassis(code)
+
+    def build_engine(self, horsepower):
+        return ToyotaEngine(horsepower)
+
+    def build_radiator(self):
+        return ToyotaRadiator()
+
+    def build_battery(self, voltage):
+        if voltage > 12:
+            return ToyotaBattery()
+        else:
+            raise Exception("Not enough voltage to build a Toyota battery")
