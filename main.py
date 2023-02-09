@@ -1,3 +1,5 @@
+from designPatterns.behavioral.command.spells import IncreaseStamina, RecoverLife, BerserkAttack
+from designPatterns.behavioral.command.unit import Wizard, Warrior
 from designPatterns.behavioral.observer.observable import WeatherStation
 from designPatterns.behavioral.observer.observer import Sprinkler, AirConditioner
 from designPatterns.behavioral.strategy.display_behaviour import *
@@ -204,6 +206,42 @@ def singleton_pattern_test():
     print("Manager 2: " + str(manager2.get_code()))
 
 
+def command_pattern_test():
+    wizard = Wizard("Dubois", 75)
+    warrior1 = Warrior("Marcel", 39, 27, 56)
+    warrior2 = Warrior("Chantal", 27, 38, 49)
+    spell1 = IncreaseStamina(9, warrior1)
+    spell2 = RecoverLife(17, warrior2)
+    spell3 = IncreaseStamina(12, warrior2)
+    wizard.add_spell(spell1)
+    wizard.add_spell(spell2)
+    wizard.add_spell(spell3)
+
+    warrior1.display()
+    warrior2.display()
+    print("The wizard is about to cast the spells!")
+    wizard.cast_spells()
+    warrior1.display()
+    warrior2.display()
+
+    print("The wizard is about to dispel the spells!")
+    wizard.dispel_spells()
+    warrior1.display()
+    warrior2.display()
+
+    spell4 = BerserkAttack(warrior2)
+    spell5 = RecoverLife(34, warrior1)
+    spell6 = BerserkAttack(warrior1)
+    wizard.add_spell(spell4)
+    wizard.add_spell(spell5)
+    wizard.add_spell(spell6)
+
+    print("The wizard is about to cast the spells!")
+    wizard.cast_spells()
+    warrior1.display()
+    warrior2.display()
+
+
 if __name__ == '__main__':
     # Encapsulation
     # encapsulation_test()
@@ -233,4 +271,7 @@ if __name__ == '__main__':
     # abstract_factory_pattern_test()
 
     # Singleton Pattern
-    singleton_pattern_test()
+    # singleton_pattern_test()
+
+    # Command Pattern
+    command_pattern_test()

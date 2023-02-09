@@ -48,16 +48,44 @@ class IncreaseStamina(Spell):
 
 
 class RecoverLife(Spell):
+
+    __amount = 0
+    __receiver = ""
+
+    def __init__(self, amount, receiver):
+        self.__amount = amount
+        self.__receiver = receiver
+
+    def get_amount(self):
+        return self.__amount
+
+    def set_amount(self, amount):
+        self.__amount = amount
+
+    def get_receiver(self):
+        return self.__receiver
+
+    def set_receiver(self, receiver):
+        self.__receiver = receiver
+
     def cast(self):
-        pass
+        self.__receiver.set_life(self.__receiver.get_life() + self.__amount)
+        print(self.__receiver.get_name() + " recovered " + str(self.__amount) + " points of life!")
 
     def dispel(self):
-        pass
+        # self.__receiver.set_life(self.__receiver.get_life() - self.__amount)
+        print("A recover life spell cannot be removed")
 
 
-class BerseckAttack(Spell):
+class BerserkAttack(Spell):
+
+    __receiver = ""
+
+    def __init__(self, receiver):
+        self.__receiver = receiver
+
     def cast(self):
-        pass
+        self.__receiver.strong_attack()
 
     def dispel(self):
-        pass
+        print("A berserk attack spell cannot be removed")
