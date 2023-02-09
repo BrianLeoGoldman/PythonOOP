@@ -18,4 +18,4 @@ For documentation, see JavaOOP project: https://github.com/BrianLeoGoldman/JavaO
 - Factory Method
 - Abstract Factory
 - Singleton
-- Command (TO DO)
+- Command
